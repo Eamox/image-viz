@@ -22,7 +22,7 @@ looker.plugins.visualizations.add({
     var css = element.innerHTML = `
     <style>
       .hero-image-vis 
-      {background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${config.image_url}");
+      {
       height: 50%;
       width:100%;
       background-position: center;
@@ -33,13 +33,14 @@ looker.plugins.visualizations.add({
     </style>
   `;
 
-  var container = element.appendChild(document.createElement("div"));
-  container.className = "hero-image-vis";
+  this._container = element.appendChild(document.createElement("div"));
+  this._container.className = "hero-image-vis";
 
 
 
   },
   updateAsync: function(data, element, config, queryResponse, details, done) {
+    this._container.style.background = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${config.image_url}")`
     done()
   }
 })
