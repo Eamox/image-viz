@@ -74,8 +74,7 @@ class heroImage extends React.PureComponent {
   }
 
   render() {
-    const config = this.props;
-    let CONFIG = this.props.config;
+    const {config, data} = this.props;
     return (
       <heroImageActual
         url={config['url']}>
@@ -84,7 +83,7 @@ class heroImage extends React.PureComponent {
 
 
 heroImage.propTypes = {
-  config : PropTypes.object
-  };
-
+  config: PropTypes.object,
+  data: PropTypes.array,
+};
 export default heroImage;
