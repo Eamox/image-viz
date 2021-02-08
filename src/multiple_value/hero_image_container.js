@@ -40,24 +40,6 @@ looker.plugins.visualizations.add({
       queryResponse.fields.table_calculations
     )
 
-    if (measures.length != 0) {
-      this.addError({title: "No Measures", message: "This chart requires measures"});
-      return;
-    }
-
-    if (queryResponse.fields.pivots.length) {
-      this.addError({title: "Pivoting not allowed", message: "This visualization does not allow pivoting"});
-      return;
-    }
-    
-    if (measures.length > 10) {
-      this.addError({title: "Maximum number of data points", message: "This visualization does not allow more than 10 data points to be selected"});
-      return;
-    }
-
-
- 
-
     const options = Object.assign({}, baseOptions)
     
   
