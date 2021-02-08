@@ -38,7 +38,14 @@ looker.plugins.visualizations.add({
 
   },
   updateAsync: function(data, element, config, queryResponse, details, done) {
-    this._container.style.background = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${config.image_url}")  no-repeat center`
-    done()
+
+    let preloaderImg = document.createElement("img");
+    preloaderImg.src = config.image_url;
+    
+    preloaderImg.addEventListener('load', (event) => {
+      this._container.style.background = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${config.image_url}")  no-repeat center`
+        preloaderImg = null;
+        done()
+    });
   }
 })
