@@ -23,11 +23,9 @@ looker.plugins.visualizations.add({
     <style>
       .hero-image-vis 
       {
-      height: 50%;
+      height: 100%;
       width:100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
+      background-size: cover!important;
       position: relative;
       }
     </style>
@@ -40,7 +38,7 @@ looker.plugins.visualizations.add({
 
   },
   updateAsync: function(data, element, config, queryResponse, details, done) {
-    this._container.style.background = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${config.image_url}")`
+    this._container.style.background = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${config.image_url}")  no-repeat center`
     done()
   }
 })
